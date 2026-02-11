@@ -1,0 +1,123 @@
+/* Responsive Stylesheet */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.row {
+    width: 100%;
+}
+
+p {
+    padding: 20px 10px 10px 10px;
+    border: 1px solid #000;
+    position: relative;
+    max-height: 120px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+p:hover {
+    overflow-y: auto;
+    cursor: ns-resize;
+}
+
+.section {
+    float: left;
+    padding: 10px;
+}
+
+/* Desktop */
+@media (min-width: 992px)  {
+  .col-lg-4 {
+    width: 33.33%;
+  }
+  .desktop {
+    display: inline;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .mobile {
+    display: none;
+    font-family: "Times New Roman", Times, serif;
+  }
+  .top-right {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    }
+    .centered {
+        display: none;
+    }
+}
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-md-6 {
+        width: 50%;
+    }
+    .col-md-12 {
+        width: 100%;
+    }
+    .desktop {
+        display: inline;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .mobile {
+        display: none;
+        font-family: "Times New Roman", Times, serif;
+    }
+    .top-right {
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 1px solid #000;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .centered {
+        display: none;
+    }
+
+}
+/* Mobile */
+@media (max-width: 767px) {
+    .desktop {
+        display: none;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .mobile {
+        display: inline;
+        font-family: "Times New Roman", Times, serif;
+    }
+    h1 {
+        text-align: left;
+        margin-left: 10px;
+    }
+    .top-right {
+        display: none;
+    }
+    .centered {
+        text-align: center;
+        display: block;
+    }
+}
+
+
+.red {
+    background-color: rgb(255, 136, 0);
+}
+
+.blue {
+    background-color: rgb(16, 154, 234);
+}
+
+.green {
+    background-color: rgb(22, 172, 22);
+}
