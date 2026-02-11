@@ -19,7 +19,7 @@ p {
     padding: 20px 10px 10px 10px;
     border: 1px solid #000;
     position: relative;
-    max-height: 120px;
+    max-height: 360px;
     overflow-x: hidden;
     overflow-y: hidden;
 }
