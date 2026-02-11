@@ -14,18 +14,29 @@ h1 {
     width: 100%;
 }
 
+h3 {
+    background-color: rgba(112, 110, 110, 0.44);
+    margin-bottom: 0;
+}
+
 p {
     padding: 20px 10px 10px 10px;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     position: relative;
     max-height: 360px;
     overflow-x: hidden;
     overflow-y: hidden;
+    background-color: rgba(112, 110, 110, 0.44);
 }
 
 p:hover {
     overflow-y: auto;
     cursor: ns-resize;
+}
+
+.really-tall {
+    /* height: 1000px; */
+    max-height: 1000px;
 }
 
 .section {
@@ -110,4 +121,8 @@ p:hover {
 
 .green {
     background-color: rgb(22, 172, 22);
+}
+
+.coral-red {
+    background-color: #E74C3C;
 }
