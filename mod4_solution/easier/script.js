@@ -66,10 +66,11 @@ for (var i = 0; i < names.length; i++) {
 
 function speakSimple(name) { 
   var firstLetter = name.charAt(0).toLowerCase();
-  var toLog = (firstLetter === 'j') ? byeSpeaker.speakSimple(name) : helloSpeaker.speakSimple(name);
-  console.log(toLog);
+  return (firstLetter === 'j') ? byeSpeaker.speakSimple(name) : helloSpeaker.speakSimple(name);
 };
 
-names.map(speakSimple);
+for (let name of names.map(speakSimple)) {
+  console.log(name);
+}
 
 })();
