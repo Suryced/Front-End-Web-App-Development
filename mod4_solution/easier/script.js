@@ -64,4 +64,12 @@ for (var i = 0; i < names.length; i++) {
   }
 }
 
+function speakSimple(name) { 
+  var firstLetter = name.charAt(0).toLowerCase();
+  var toLog = (firstLetter === 'j') ? byeSpeaker.speakSimple(name) : helloSpeaker.speakSimple(name);
+  console.log(toLog);
+};
+
+names.map(speakSimple);
+
 })();
