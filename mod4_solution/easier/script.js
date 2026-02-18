@@ -73,4 +73,23 @@ for (let name of names.map(speakSimple)) {
   console.log(name);
 }
 
+var initialValue = {hello: [],  bye: []};
+names.reduce(
+  (accumulator, name) => { 
+  if (name.charAt(0).toLowerCase() === 'j') {
+    accumulator.bye.push(byeSpeaker.speakSimple(name));
+  } else {
+    accumulator.hello.push(helloSpeaker.speakSimple(name));
+  }
+  return accumulator;
+}, initialValue);
+
+for (let h of initialValue.hello) {
+  console.log(h);
+}
+
+for (let b of initialValue.bye) {
+  console.log(b);
+}
+
 })();
