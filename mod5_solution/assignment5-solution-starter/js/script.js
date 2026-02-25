@@ -14,6 +14,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 var dc = {};
 
 var homeHtmlUrl = "snippets/home-snippet.html";
+var aboutHtmlUrl = "about.html";
 var allCategoriesUrl =
   "https://coursera-jhu-default-rtdb.firebaseio.com/categories.json";
 var categoriesTitleHtml = "snippets/categories-title-snippet.html";
@@ -139,6 +140,20 @@ function chooseRandomCategory (categories) {
   return categories[randomArrayIndex];
 }
 
+function chooseRandomNumberInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+function buildStarClassMap(filledStarsCount) {
+  var classMap = {};
+  for (var i = 1; i <= 5; i++) {
+    classMap["class" + i] = i <= filledStarsCount ? "fa fa-star" : "fa fa-star-o";
+  }
+  return classMap;
+}
+
 
 // Load the menu categories view
 dc.loadMenuCategories = function () {
@@ -156,6 +171,30 @@ dc.loadMenuItems = function (categoryShort) {
   $ajaxUtils.sendGetRequest(
     menuItemsUrl + categoryShort + ".json",
     buildAndShowMenuItemsHTML);
+};
+
+// Load the about view with a random 1-5 star rating
+dc.loadAboutPage = function () {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    aboutHtmlUrl,
+    function (aboutHtml) {
+
+      var rating = chooseRandomNumberInclusive(1, 5);
+      var classMap = buildStarClassMap(rating);
+      var aboutHtmlToInsert = aboutHtml;
+
+      for (var i = 1; i <= 5; i++) {
+        aboutHtmlToInsert = insertProperty(
+          aboutHtmlToInsert,
+          "class" + i,
+          classMap["class" + i]
+        );
+      }
+
+      insertHtml("#main-content", aboutHtmlToInsert);
+    },
+    false);
 };
 
 
