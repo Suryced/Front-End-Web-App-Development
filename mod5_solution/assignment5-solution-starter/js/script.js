@@ -61,6 +61,22 @@ var switchMenuToActive = function () {
   }
 };
 
+var switchActive = function (buttonId) {
+  var buttons = ["#navHomeButton", "#navMenuButton", "#navAboutButton"];
+  for (var i = 0; i < buttons.length; i++) {
+    var classes = document.querySelector(buttons[i]).className;
+    classes = classes.replace(new RegExp("active", "g"), "");
+    document.querySelector(buttons[i]).className = classes;
+  }
+
+  var buttonSelector = "#" + buttonId;
+  var classes = document.querySelector(buttonSelector).className;
+  if (classes.indexOf("active") === -1) {
+    classes += " active";
+    document.querySelector(buttonSelector).className = classes;
+  }
+};
+
 // On page load (before images or CSS)
 document.addEventListener("DOMContentLoaded", function (event) {
 
@@ -179,6 +195,7 @@ dc.loadAboutPage = function () {
   $ajaxUtils.sendGetRequest(
     aboutHtmlUrl,
     function (aboutHtml) {
+      switchActive("navAboutButton");
 
       var rating = chooseRandomNumberInclusive(1, 5);
       var classMap = buildStarClassMap(rating);
@@ -210,7 +227,7 @@ function buildAndShowCategoriesHTML (categories) {
         categoryHtml,
         function (categoryHtml) {
           // Switch CSS class active to menu button
-          switchMenuToActive();
+          switchActive("navMenuButton");
 
           var categoriesViewHtml =
             buildCategoriesViewHtml(categories,
@@ -266,7 +283,7 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
         menuItemHtml,
         function (menuItemHtml) {
           // Switch CSS class active to menu button
-          switchMenuToActive();
+          switchActive("navMenuButton");
 
           var menuItemsViewHtml =
             buildMenuItemsViewHtml(categoryMenuItems,
