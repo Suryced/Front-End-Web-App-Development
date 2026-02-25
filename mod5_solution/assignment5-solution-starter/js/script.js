@@ -201,6 +201,7 @@ dc.loadAboutPage = function () {
       var classMap = buildStarClassMap(rating);
       var aboutHtmlToInsert = aboutHtml;
 
+      aboutHtmlToInsert = insertProperty(aboutHtmlToInsert, "rating", rating+"-star rating");
       for (var i = 1; i <= 5; i++) {
         aboutHtmlToInsert = insertProperty(
           aboutHtmlToInsert,
