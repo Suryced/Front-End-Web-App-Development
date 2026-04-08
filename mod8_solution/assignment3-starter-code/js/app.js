@@ -67,20 +67,7 @@
   function FoundItemsDirective() {
     var ddo = {
       restrict: 'E',
-      template:
-        '<div>' +
-          '<ul class="list-group" ng-if="items.length">' +
-            '<li class="list-group-item" ng-repeat="item in items track by $index">' +
-              '<strong>{{ item.name }}</strong>, ' +
-              '{{ item.short_name }}, ' +
-              '{{ item.description }}' +
-              '<button class="btn btn-danger btn-xs pull-right" ng-click="onRemove({ index: $index })">' +
-                'Don\'t want this one!' +
-              '</button>' +
-            '</li>' +
-          '</ul>' +
-          '<p class="text-danger" ng-if="searched && !items.length">Nothing found</p>' +
-        '</div>',
+      templateUrl: 'found-items.html',
       scope: {
         items: '<',
         onRemove: '&',
