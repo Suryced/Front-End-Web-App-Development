@@ -1,0 +1,13 @@
+<section class="panel">
+  <h2>Menu Categories</h2>
+  <p class="muted">Choose a category to see the items in that section of the menu.</p>
+
+  <ul class="list">
+    <li ng-repeat="category in $ctrl.categories track by category.id">
+      <a class="category-link" ui-sref="items({ categoryShortName: category.short_name })">
+        {{ category.name }} ({{ category.short_name }})
+      </a>
+      <div class="muted">{{ category.special_instructions }}</div>
+    </li>
+  </ul>
+</section>

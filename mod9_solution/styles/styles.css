@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 16px;
+}
+
+.site-header,
+.page-content,
+.panel {
+  margin-bottom: 16px;
+}
+
+.site-header nav a {
+  margin-right: 12px;
+}
+
+.list {
+  padding-left: 20px;
+}
+
+.list li {
+  margin-bottom: 12px;
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+.muted {
+  color: #666;
+}

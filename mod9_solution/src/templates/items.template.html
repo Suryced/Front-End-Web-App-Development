@@ -1,0 +1,21 @@
+<section class="panel">
+  <h2>{{ $ctrl.itemsData.category.name }} Items</h2>
+  <p class="muted">
+    Category short name: {{ $ctrl.itemsData.category.short_name }}
+  </p>
+  <p>
+    <a class="category-link" ui-sref="categories">Back to Categories</a>
+  </p>
+
+  <ul class="list">
+    <li ng-repeat="item in $ctrl.itemsData.menu_items track by item.short_name">
+      <div class="item-name">
+        {{ item.name }}
+        <span class="muted" ng-if="item.short_name">({{ item.short_name }})</span>
+      </div>
+      <div class="item-description" ng-if="item.description">{{ item.description }}</div>
+      <div class="muted" ng-if="item.price_small">Small: {{ item.price_small | currency }}</div>
+      <div class="muted" ng-if="item.price_large">Large: {{ item.price_large | currency }}</div>
+    </li>
+  </ul>
+</section>
