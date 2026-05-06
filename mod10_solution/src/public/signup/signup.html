@@ -1,0 +1,119 @@
+<div class="container">
+  <h2 class="text-center">Sign Up for Our Newsletter</h2>
+
+  <form name="signUpForm"
+        class="signup-form"
+        novalidate
+        ng-submit="signUpCtrl.submit()">
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="signup-first-name">First name</label>
+        <input id="signup-first-name"
+               type="text"
+               name="firstName"
+               class="form-control"
+               ng-model="signUpCtrl.user.firstName"
+               required
+               minlength="2">
+        <span class="help-block validation-message"
+              ng-if="(signUpForm.firstName.$touched || signUpForm.$submitted) && signUpForm.firstName.$error.required">
+          First name is required.
+        </span>
+        <span class="help-block validation-message"
+              ng-if="(signUpForm.firstName.$touched || signUpForm.$submitted) && signUpForm.firstName.$error.minlength">
+          First name must be at least 2 characters long.
+        </span>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="signup-last-name">Last name</label>
+        <input id="signup-last-name"
+               type="text"
+               name="lastName"
+               class="form-control"
+               ng-model="signUpCtrl.user.lastName"
+               required
+               minlength="2">
+        <span class="help-block validation-message"
+              ng-if="(signUpForm.lastName.$touched || signUpForm.$submitted) && signUpForm.lastName.$error.required">
+          Last name is required.
+        </span>
+        <span class="help-block validation-message"
+              ng-if="(signUpForm.lastName.$touched || signUpForm.$submitted) && signUpForm.lastName.$error.minlength">
+          Last name must be at least 2 characters long.
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="signup-email">Email address</label>
+        <input id="signup-email"
+               type="email"
+               name="email"
+               class="form-control"
+               ng-model="signUpCtrl.user.email"
+               required>
+        <span class="help-block validation-message"
+              ng-if="(signUpForm.email.$touched || signUpForm.$submitted) && signUpForm.email.$error.required">
+          Email is required.
+        </span>
+        <span class="help-block validation-message"
+              ng-if="(signUpForm.email.$touched || signUpForm.$submitted) && signUpForm.email.$error.email">
+          Must be a valid email address.
+        </span>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="signup-phone">Phone number</label>
+        <input id="signup-phone"
+               type="text"
+               name="phone"
+               class="form-control"
+               ng-model="signUpCtrl.user.phone"
+               placeholder="###-###-####"
+               pattern="(\d{3})-(\d{3})-(\d{4})"
+               required>
+        <span class="help-block validation-message"
+              ng-if="(signUpForm.phone.$touched || signUpForm.$submitted) && signUpForm.phone.$error.required">
+          Phone number is required.
+        </span>
+        <span class="help-block validation-message"
+              ng-if="(signUpForm.phone.$touched || signUpForm.$submitted) && signUpForm.phone.$error.pattern">
+          Phone must be in the format ###-###-####.
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="signup-favorite">Favorite menu number</label>
+      <input id="signup-favorite"
+             type="text"
+             name="favorite"
+             class="form-control"
+             ng-model="signUpCtrl.user.favorite"
+             ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }"
+             favorite-item
+             placeholder="Example: L1"
+             required>
+      <span class="help-block validation-message"
+            ng-if="(signUpForm.favorite.$touched || signUpForm.$submitted) && signUpForm.favorite.$error.required">
+        Favorite menu number is required.
+      </span>
+      <span class="help-block validation-message"
+            ng-if="signUpForm.favorite.$touched && signUpForm.favorite.$error.favoriteItem">
+        No such menu number exists.
+      </span>
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary"
+            ng-disabled="signUpForm.$invalid || signUpForm.favorite.$pending">
+      Submit
+    </button>
+
+    <p class="signup-success" ng-if="signUpCtrl.completed">
+      Your information has been saved.
+    </p>
+  </form>
+</div>
